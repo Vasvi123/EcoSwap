@@ -4,7 +4,9 @@ function renderProduct(product) {
     el.innerHTML = '<em>No product detected.</em>';
     return;
   }
-  el.innerHTML = `<b>Product:</b> ${product.name || ''}<br><b>Brand:</b> ${product.brand || ''}<br><b>Price:</b> ${product.price || ''}`;
+  el.innerHTML =
+    (product.image ? `<img src="${product.image}" alt="Product Image" style="max-width:100px;max-height:100px;display:block;margin-bottom:8px;">` : '') +
+    `<b>Product:</b> ${product.name || ''}<br><b>Brand:</b> ${product.brand || ''}<br><b>Price:</b> ${product.price || ''}`;
 }
 
 function renderImpact(impact) {

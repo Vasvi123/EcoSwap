@@ -10,10 +10,18 @@ function extractProductInfo() {
     product.brand = document.querySelector('a._2whKao')?.innerText.trim();
     product.price = document.querySelector('div._30jeq3._16Jk6d')?.innerText.trim();
   } else if (window.location.hostname.includes('walmart')) {
-    product.name = document.querySelector('h1.prod-ProductTitle, h1[data-automation-id="product-title"]')?.innerText.trim();
-    product.brand = document.querySelector('a.prod-brandName, a[data-automation-id="brand-link"]')?.innerText.trim();
-    product.price = document.querySelector('span.price-characteristic, span[data-automation-id="product-price"]')?.innerText.trim();
+    // Try to get product name from image alt as fallback
+    let mainImage = document.querySelector('img.db[alt]');
+    product.image = mainImage?.src;
+    product.name = mainImage?.alt || '';
+    // Brand and price selectors may need further refinement based on more HTML, so leave as undefined for now
+    product.brand = undefined;
+    product.price = undefined;
+    // Try to extract product description (fallback to empty string)
+    product.description = '';
   }
+  console.log("EcoSwap content script running");
+  console.log("Extracted product:", product);
   if (product.name) {
     chrome.runtime.sendMessage({type: 'PRODUCT_INFO', product});
   }
