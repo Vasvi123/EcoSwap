@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; width: 300px; margin: 0; padding: 10px; background: #f4f9f4; }
+h1 { color: #388e3c; font-size: 1.5em; margin-bottom: 10px; }
+#product, #impact, #alternatives, #rewards { margin-bottom: 10px; }
+button { background: #388e3c; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+button:hover { background: #2e7031; } 
