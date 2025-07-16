@@ -13,10 +13,11 @@ function renderImpact(impact) {
   const el = document.getElementById('impact');
   if (!impact) { el.innerHTML = ''; return; }
   el.innerHTML = `<b>Environmental Impact:</b><br>
+    Eco-Score: ${impact.ecoScore}<br>
+    Nutri-Score: ${impact.nutriScore}<br>
     Carbon Footprint: ${impact.carbonFootprint}<br>
-    Ethical Sourcing: ${impact.ethicalSourcing}<br>
-    Local: ${impact.local}<br>
-    Recycled: ${impact.recycled}`;
+    Packaging: ${impact.packaging}<br>
+    Labels: ${impact.labels}`;
 }
 
 function renderAlternatives(alts) {
@@ -47,5 +48,21 @@ function load() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', load);
+function manualSearch() {
+  const name = document.getElementById('manualProductInput').value.trim();
+  if (!name) return;
+  // Send to background for analysis
+  chrome.runtime.sendMessage({ type: 'MANUAL_ANALYZE', name }, (resp) => {
+    renderProduct(resp.product);
+    renderImpact(resp.product?.impact);
+    window._alts = resp.alternatives;
+    renderAlternatives(resp.alternatives);
+    renderRewards(resp.points);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  load();
+  document.getElementById('manualSearchBtn').addEventListener('click', manualSearch);
+});
 window.addToCart = addToCart; 

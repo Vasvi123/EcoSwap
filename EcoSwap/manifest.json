@@ -8,7 +8,8 @@
     "https://www.amazon.com/*",
     "https://www.amazon.in/*",
     "https://www.flipkart.com/*",
-    "https://www.walmart.com/*"
+    "https://www.walmart.com/*",
+    "https://world.openfoodfacts.org/*"
   ],
   "background": {
     "service_worker": "background.js"

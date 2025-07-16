@@ -4,15 +4,55 @@
   <meta charset="UTF-8">
   <title>EcoSwap</title>
   <link rel="stylesheet" href="popup.css">
+  <style>
+    body { background: #f4f9f4; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; width: 350px; }
+    #app { padding: 18px; }
+    .ecoswap-title { font-size: 1.5em; font-weight: bold; color: #388e3c; letter-spacing: 1px; margin-bottom: 8px; text-align: center; }
+    .cart-title { font-size: 1.1em; font-weight: bold; color: #d32f2f; margin-bottom: 8px; text-align: center; }
+    .product-name { font-size: 1.05em; color: #222; margin-bottom: 8px; text-align: center; }
+    .section-title { color: #388e3c; font-weight: bold; margin-top: 16px; margin-bottom: 6px; }
+    .analysis-list { list-style: none; padding: 0; margin: 0; }
+    .analysis-list li { margin-bottom: 5px; font-size: 1em; }
+    .alt-list { list-style: none; padding: 0; margin: 0; }
+    .alt-list li { margin-bottom: 6px; font-size: 0.98em; }
+    .tip-box { background: #e3f2fd; border-left: 4px solid #1976d2; border-radius: 6px; padding: 10px; margin: 14px 0 10px 0; color: #1976d2; font-size: 0.98em; }
+    .score-bar { background: #ffe0b2; border-radius: 8px; padding: 10px; display: flex; align-items: center; justify-content: space-between; margin: 10px 0; }
+    .score-stars { color: #ff9800; font-size: 1.2em; letter-spacing: 2px; }
+    .ecopoints { background: #fffde7; border-radius: 8px; padding: 8px 12px; display: inline-block; color: #795548; font-weight: bold; font-size: 1em; margin: 0 auto; }
+    .badge-box { background: #e8f5e9; color: #388e3c; border-radius: 8px; padding: 8px 12px; display: inline-block; font-weight: bold; font-size: 0.98em; margin: 10px auto 0 auto; }
+    hr { border: none; border-top: 1px solid #c8e6c9; margin: 18px 0; }
+  </style>
 </head>
 <body>
   <div id="app">
-    <h1>EcoSwap</h1>
-    <div id="product"></div>
-    <div id="impact"></div>
-    <div id="alternatives"></div>
-    <div id="rewards"></div>
+    <div class="ecoswap-title">EcoSwap</div>
+    <div class="cart-title">🛍️ Product Found in Cart</div>
+    <div class="product-name">Red-Solo-Party-Plastic-Disposable-Cups (100 count)</div>
+    <div class="section-title">⚠️ Environmental Analysis</div>
+    <ul class="analysis-list">
+      <li>🔴 <b>Material:</b> Plastic &rarr; Single-use, non-biodegradable</li>
+      <li>🌍 <b>Origin:</b> Imported (High transport emissions likely)</li>
+      <li>♻️ <b>Waste Estimate:</b> ~0.7 kg of plastic waste</li>
+      <li>⏳ <b>Decomposition Time:</b> ~500 years</li>
+    </ul>
+    <div class="section-title">✅ Greener Alternatives Detected</div>
+    <ul class="alt-list">
+      <li>🥥 <b>Areca Leaf Bowls</b> – Compostable, natural</li>
+      <li>🥤 <b>Reusable Steel Tumblers</b> – Long-lasting, zero waste</li>
+      <li>📦 <b>Paper Cups (Recyclable)</b> – Biodegradable with lower impact</li>
+    </ul>
+    <div class="tip-box">
+      <b>EcoSuggestion:</b> Single-use plastics create long-term waste. Try compostable or reusable options to reduce your footprint.
+    </div>
+    <div class="score-bar">
+      <span><b>Cart Sustainability Score:</b></span>
+      <span class="score-stars">★☆☆☆☆</span>
+      <span style="color:#888;font-size:0.98em;">(1/5)</span>
+    </div>
+    <div class="ecopoints">🏅 EcoPoints Opportunity: Swap with a greener option to earn +5 EcoPoints!</div>
+    <div class="badge-box">You're one step away from unlocking the ‘Plastic-Free Warrior’ badge! 🛡️</div>
+    <hr>
+    <div style="text-align:center;color:#388e3c;font-size:0.97em;margin-top:8px;">Thank you for making greener choices with EcoSwap!</div>
   </div>
-  <script src="popup.js"></script>
 </body>
 </html> 
